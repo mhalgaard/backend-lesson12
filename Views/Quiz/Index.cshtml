@@ -1,0 +1,23 @@
+﻿@using QuizApp.Models;
+@model List<Quiz>;
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Quizzes</title>
+</head>
+<body>
+    <h1>Quizzes!</h1>
+    <ol>
+        @foreach (Quiz q in Model)
+        {
+            <li>@q.Title <a asp-action="TakeQuiz" asp-controller="Quiz" asp-route-id="@q.QuizId">(Take quiz)</a></li>
+        }
+    </ol>
+</body>
+</html>

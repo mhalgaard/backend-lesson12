@@ -1,0 +1,34 @@
+﻿@using QuizApp.Models;
+@model Quiz;
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Quizzes</title>
+</head>
+<body>
+    <h1>@Model.Title</h1>
+
+    <form asp-controller="Quiz" asp-action="Submit" method="post">
+        @foreach (Question q in Model.Questions)
+        {
+            <h3>@q.Text</h3>
+
+            @for (int i = 0; i < q.Answers.Count; i++)
+            {
+                var answer = q.Answers[i];
+                var name = "Answers[" + q.QuestionId + "]";
+                <input type="radio" name="@name" value="@i">@answer<br />
+            }
+        }
+        <br />
+        <input type="hidden" name="QuizId" value="@Model.QuizId" />
+        <input type="submit" value="Submit" />
+    </form>
+</body>
+</html>
