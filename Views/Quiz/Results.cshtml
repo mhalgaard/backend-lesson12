@@ -1,5 +1,5 @@
 ﻿@using QuizApp.Models;
-@model int
+@model QuizResults
 @{
     Layout = null;
 }
@@ -14,6 +14,8 @@
 <body>
     <h1>These are the results!</h1>
 
-    <h3>Errors: @Model</h3>
+    <h3>Name of participant: @Model.participantName</h3>
+    <h3>Correct answers: @Model.CorrectAnswers</h3>
+    <h3>Wrong answers: @Model.WrongAnswers</h3>
 </body>
 </html>

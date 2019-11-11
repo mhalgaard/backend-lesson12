@@ -3,7 +3,6 @@
 @{
     Layout = null;
 }
-
 <!DOCTYPE html>
 
 <html>
@@ -16,7 +15,8 @@
     <ol>
         @foreach (Quiz q in Model)
         {
-            <li>@q.Title <a asp-action="TakeQuiz" asp-controller="Quiz" asp-route-id="@q.QuizId">(Take quiz)</a></li>
+            <li>@q.Title <a asp-action="TakeQuiz" asp-controller="Quiz" 
+                            asp-route-id="@q.QuizId">(Take quiz)</a></li>
         }
     </ol>
 </body>

@@ -35,16 +35,10 @@ namespace QuizApp.Controllers
         {
             Quiz quiz = quizRepository.GetQuiz(QuizId);
 
-            int errors = 0;
-            for (int i = 0; i < quiz.Questions.Count; i++)
-            {
-                if (quiz.Questions[i].CorrectAnswerIndex != Answers[i])
-                {
-                    errors++;
-                }
-            }
+            QuizResults result = new QuizResults("Kristian", quiz);
+            result.AddAnswers(Answers);
 
-            return View("results", errors);
+            return View("results", result);
         }
     }
 }
